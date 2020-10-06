@@ -10,6 +10,8 @@ class UsersController < ApplicationController
     # User.create(params[:user][:admin]) 想定していないparamsが混じってしまう可能性もあり
     @user = User.new(user_params) 
     if @user.save
+      flash[:success] = "Welcome to Instagram clone!"
+      redirect_to @user
     else
       render 'new'
     end
