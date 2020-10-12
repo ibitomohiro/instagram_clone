@@ -1,7 +1,9 @@
 <% provide(:title, @user.name) %>
 <h1>
   <% if @user.image? %>
-  <%= image_tag @user.image.url %>
+    <%= image_tag @user.image.url %>
+  <% else %>
+    <%= image_tag "/assets/images/instauser.png", size: '100×100'%>
   <% end %>
   <%= @user.name %>
 </h1>
