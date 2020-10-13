@@ -1,0 +1,4 @@
+<% @pictures.each do |picture| %>
+  <p><%= picture.content %> </p>
+  <%= image_tag picture.image.url(:medium) %>
+<% end %>
