@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-
+  before_action :logged_in_user, only:[:new,  :create, :destroy]
   def index
     @pictures = Picture.all
   end

@@ -88,3 +88,13 @@ input {
   width: 50px;
   height: 50px;
 }
+
+/* Profile */
+.profile-wrap{
+  margin:40px 0px;
+}
+.img.gravatar{
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}

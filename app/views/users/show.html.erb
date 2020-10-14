@@ -1,9 +1,15 @@
-<% provide(:title, @user.name) %>
-<h1>
-  <% if @user.image? %>
-    <%= image_tag @user.image.url %>
-  <% else %>
-    <%= image_tag "/assets/images/instauser.png", size: '100×100'%>
-  <% end %>
-  <%= @user.name %>
-</h1>
+<div class="profile-wrap">
+  <div class="row">
+    <div class="col-md-8">
+      <% provide(:title, @user.name) %>
+      <h1>
+        <% if @user.image? %>
+          <%= image_tag @user.image.url %>
+        <% else %>
+          <%= gravatar_for @user %>
+        <% end %>
+        <%= @user.name %>
+      </h1>
+    </div>
+  </div>
+</div>

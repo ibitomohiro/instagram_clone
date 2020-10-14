@@ -1,4 +1,10 @@
-<% @pictures.each do |picture| %>
-  <p><%= picture.content %> </p>
-  <%= image_tag picture.image.url(:medium) %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <% @pictures.each do |picture| %>   
+      <%= image_tag picture.user.image.url %>     
+      <%= picture.content %>
+      <%= image_tag picture.image.medium.url %>
+    <% end %>
+  </div>
+</div>
+
