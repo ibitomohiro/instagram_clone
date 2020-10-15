@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index]
+  before_action :correct_user, only:[:edit, :update]
   #GET /users/new
   def new
     @user = User.new
@@ -56,5 +57,10 @@ class UsersController < ApplicationController
         flash[:danger] = "Please log in"
         redirect_to new_session_url
       end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
     end
 end
