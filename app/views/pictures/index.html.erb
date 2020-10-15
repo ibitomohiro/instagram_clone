@@ -1,10 +1,10 @@
-<div class="row">
-  <div class="col-md-4">
-    <% @pictures.each do |picture| %>   
-      <%= image_tag picture.user.image.url %>     
-      <%= picture.content %>
-      <%= image_tag picture.image.medium.url %>
-    <% end %>
-  </div>
-</div>
 
+<% @pictures.each do |picture| %>   
+<%= image_tag picture.image.medium.url %>
+<%= link_to user_path(picture.user), class: "no-text-decoration" do %>
+<%= image_tag picture.user.image.thumb50.url, class:"picture-profile-icon" %>
+<% end %>
+<%= link_to user_path(picture.user), class:"black-color no-text-decoration", title: picture.user.name do %>
+<strong><%= picture.user.name%> </strong>
+<% end %>
+<% end %>
