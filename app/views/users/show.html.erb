@@ -8,7 +8,8 @@
         <% else %>
           <%= gravatar_for @user %>
         <% end %>
-        <%= @user.name %>
+        <%= @user.name %> 
+        <%= link_to "投稿一覧", pictures_path, class: 'btn btn-success btn-lg'%>
       </h1>
     </div>
   </div>

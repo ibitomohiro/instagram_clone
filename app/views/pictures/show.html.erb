@@ -11,7 +11,10 @@
               <span><strong><%= @picture.user.name %></strong></span><br>
               <span>Content:<strong><%= @picture.content %></strong></span>
               <%= link_to time_ago_in_words(@picture.created_at).upcase + "前","#",class:"post-time no-test-decoration" %>
-              <button type="button" class="btn btn-secondary"><%= link_to "戻る", pictures_path%></button>
+              <%= link_to "戻る", pictures_path, class: 'btn btn-default'%>
+               <% if @picture.user_id == current_user.id %>
+              <%= link_to "投稿の更新", edit_picture_path(@picture.id), class:'btn btn-warning'%>
+              <% end %>
               <hr>
               <div class="row parts">
                 <form action="#" class="w-100">
