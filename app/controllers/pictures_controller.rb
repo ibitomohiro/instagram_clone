@@ -21,6 +21,14 @@ class PicturesController < ApplicationController
     end
   end
 
+  def confirm
+    @picture = current_user.pictures.new(picture_params)
+    if @picture.invalid?
+      flash.now[:danger] = "image have to be included"
+      render 'new'
+    end
+  end
+
 
   def create
     @picture = current_user.pictures.build(picture_params)
@@ -39,12 +47,12 @@ class PicturesController < ApplicationController
   def destroy
     @picture = Picture.find(params[:id])
     @picture.destroy
-    flash[:success] = "投稿が削除されました！"
+    flash[:danger] = "投稿が削除されました！"
     redirect_to pictures_path
   end
   
     private
     def picture_params
-      params.require(:picture).permit(:content, :image)
+      params.require(:picture).permit(:content, :image, :image_cache)
     end
 end
