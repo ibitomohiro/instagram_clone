@@ -11,6 +11,10 @@
         <%= link_to user_path(picture.user), class:"black-color no-text-decoration", title: picture.user.name do %>
         <strong><%= picture.user.name%> </strong>
         <button type="button" class="btn btn-success"><%= link_to "投稿詳細", picture_path(picture.id) %></button>
+        <% if picture.user_id == current_user.id %>
+        <button type ="button" class="btn btn-danger"><%= link_to "削除", picture_path(picture.id), method: :delete,
+                                                       data: {confirm:"Are you sure?"} %></button>
+        <% end %>                                                      
         <% end %>
       </div>
        <% end %>  

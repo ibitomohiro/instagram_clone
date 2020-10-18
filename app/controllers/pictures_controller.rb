@@ -23,6 +23,10 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    flash[:success] = "投稿が削除されました！"
+    redirect_to pictures_path
   end
   
     private
