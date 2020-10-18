@@ -1,0 +1,26 @@
+<p>
+  <strong>Contents</strong>
+  <p><%= @picture.content %></p>
+  <%= image_tag @picture.image.medium.url %>
+  <div class="card-body">
+          <div class="row parts">
+            <%= link_to "", "#", class:"love" %>
+            <%= link_to "", "#", class:"comment"%>
+            <div><strong>「いいね！」１５件</strong></div>
+            <div>
+              <span><strong><%= @picture.user.name %></strong></span><br>
+              <span>Content:<strong><%= @picture.content %></strong></span>
+              <%= link_to time_ago_in_words(@picture.created_at).upcase + "前","#",class:"post-time no-test-decoration" %>
+              <button type="button" class="btn btn-secondary"><%= link_to "戻る", pictures_path%></button>
+              <hr>
+              <div class="row parts">
+                <form action="#" class="w-100">
+                  <div>
+                    <textarea class="form-control comment-input border-0" placeholder="コメント..."rows="5"></textarea>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+</p>
