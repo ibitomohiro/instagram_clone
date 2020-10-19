@@ -39,6 +39,7 @@ gem 'bcrypt', '3.1.11'
 gem "jquery-rails"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'faker'
 
 
 group :development, :test do
