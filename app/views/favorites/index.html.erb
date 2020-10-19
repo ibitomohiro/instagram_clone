@@ -1,0 +1,15 @@
+<% provide(:title, "favorite page")%>
+<h1>お気に入り一覧</h1>
+<div class="row">
+  <div class="col-md-8">
+      <div class="card">
+        <% @favorites.each do |favorite| %>
+          <%= image_tag favorite.picture.image.thumb.url %>  
+          <div class="card-body">
+            <h5 class="card-title">User name:  <%= favorite.user.name %></h5>
+            <p class="card-text">Picture 内容<br><%= favorite.picture.content %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

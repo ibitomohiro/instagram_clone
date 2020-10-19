@@ -177,3 +177,8 @@ img.confirm_image{
   margin-left: 180px;
   margin-bottom: 2rem;
 }
+.card{
+  display: block;
+  margin-left: 480px;
+  width: 40rem;
+}

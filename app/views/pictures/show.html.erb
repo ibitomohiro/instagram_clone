@@ -4,8 +4,6 @@
   <%= image_tag @picture.image.medium.url %>
   <div class="card-body">
           <div class="row parts">
-            <%= link_to "", "#", class:"love" %>
-            <%= link_to "", "#", class:"comment"%>
             <% unless @picture.user_id == current_user.id %>
               <% if @favorite.present? %>
                 <%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete, class:'btn btn-danger'%>
