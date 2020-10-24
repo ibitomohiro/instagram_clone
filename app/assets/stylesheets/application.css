@@ -154,6 +154,11 @@ img.confirm_image{
   margin-left: 180px;
   margin-bottom: 2rem;
 }
+/* show image */
+img.show-picture {
+  margin-bottom: 2rem;
+}
+
 /* favorite page */
 .card-favorite{
   margin-left: 450px;
