@@ -1,34 +1,30 @@
-<p>
-  <strong>投稿内容</strong>
-  <p><%= @picture.content %></p>
-  <%= image_tag @picture.image.medium.url %>
+<strong>投稿内容</strong>
+<p><%= @picture.content %></p>
+<%= image_tag @picture.image.medium.url %>
   <div class="card-body">
-          <div class="row parts">
-            <% unless @picture.user_id == current_user.id %>
-              <% if @favorite.present? %>
-                <%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete, class:'btn btn-danger'%>
-                <% else %>
-                  <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class:'btn btn-success'%>
-              <% end %>
-            <% end %>
-            <div><strong>「いいね！」１５件</strong></div>
-            <div>
-              <span><strong><%= @picture.user.name %></strong></span><br>
-              <span>投稿内容:<strong><%= @picture.content %></strong></span>
-              <%= link_to time_ago_in_words(@picture.created_at).upcase + "前","#",class:"post-time no-test-decoration" %>
-              <%= link_to "戻る", pictures_path, class: 'btn btn-default'%>
-               <% if @picture.user_id == current_user.id %>
-              <%= link_to "投稿の更新", edit_picture_path(@picture.id), class:'btn btn-warning'%>
-              <% end %>
-              <hr>
-              <div class="row parts">
-                <form action="#" class="w-100">
-                  <div>
-                    <textarea class="form-control comment-input border-0" placeholder="コメント..."rows="5"></textarea>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+  <%= link_to "戻る", pictures_path, class: 'btn btn-default'%>
+  <% if @picture.user_id == current_user.id %>
+  <%= link_to "投稿の更新", edit_picture_path(@picture.id), class:'btn btn-warning'%>
+  <% end %>
+  <hr>
+    <div class="row parts">
+      <div class="row parts">
+        <% unless @picture.user_id == current_user.id %>
+          <% if @favorite.present? %>
+          <%= link_to 'お気に入りを解除する', favorite_path(id: @favorite.id), method: :delete, class:'btn btn-danger'%>
+          <% else %>
+          <%= link_to 'お気に入りする', favorites_path(picture_id: @picture.id), method: :post, class:'btn btn-success'%>
+          <% end %>
+        <% end %>
+        <div><strong>「いいね！」１５件</strong></div>
+        <div>
+          <span><strong><%= @picture.user.name %></strong></span><br>
+          <span>投稿内容:<strong><%= @picture.content %></strong></span>
+          <%= link_to time_ago_in_words(@picture.created_at).upcase + "前","#",class:"post-time no-test-decoration" %>
+          <form action="#" class="w-100">
+          <div><textarea class="form-control comment-input border-0" placeholder="コメント..."rows="5"></textarea></div>
+          </form>
         </div>
-</p>
+      </div>
+    </div>
+  </div>
