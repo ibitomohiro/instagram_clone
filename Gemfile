@@ -16,6 +16,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'faker'
 
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
@@ -29,7 +30,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener_web' 
 end
 
 group :test do
@@ -39,3 +39,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'letter_opener_web' 
