@@ -33,7 +33,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)
     if @picture.save
-      PictureMailer.picture_mail(@picture).deliver
+      # PictureMailer.picture_mail(@picture).deliver
       flash[:success] = "Pictureを投稿しました！"
       redirect_to pictures_path
     else
