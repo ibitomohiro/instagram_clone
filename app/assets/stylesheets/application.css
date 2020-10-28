@@ -49,6 +49,12 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+p.lead{
+  text-align: center;
+}
+.sign-up-botton{
+  text-align: center;
+}
 
  /* forms */
 
@@ -116,14 +122,18 @@ input {
   margin-right: 10px;
   margin-top: 2rem;
 }
-/* post index */
+/* picture index */
 .post-profile-icon {
   height: 40px;
   width: 40px;
   border-radius: 50%;
   margin-right: 10px;
 }
+.card{
+  margin-left: 30em;
+  float: none;
 
+}
 .card-wrap {
   margin: 40px 0px;
 }

@@ -1,22 +1,24 @@
-<div class="col-md-8">
-  <% @pictures.each do |picture| %>
-    <div class="card-wrap">
-     <div class="card-picture-index">
-      <div class="card-header align-items-center d-flex">
-        <%= image_tag picture.image.thumb.url %>
-        <%= link_to user_path(picture.user), class: "no-text-decoration" do %> <br>
-        <%= image_tag picture.user.image.thumb50.url, class:"picture-profile-icon" %>
-        <% end %>
-        <%= link_to user_path(picture.user), class:"black-color no-text-decoration", title: picture.user.name do %>
-        <strong><%= picture.user.name%> </strong>
-        <%= link_to "投稿詳細", picture_path(picture.id), class:"btn btn-success" %>
-        <% if picture.user_id == current_user.id %>
-        <%= link_to "削除", picture_path(picture.id), method: :delete, 
-        class: 'btn btn-danger',data: {confirm:"Are you sure?"} %>
-        <% end %>                                                      
-        <% end %>
+<div class="card">
+  <div class="col-md-8">
+    <% @pictures.each do |picture| %>
+      <div class="card-wrap">
+      <div class="card-picture-index">
+        <div class="card-header align-items-center d-flex">
+          <%= image_tag picture.image.thumb.url %>
+          <%= link_to user_path(picture.user), class: "no-text-decoration" do %> <br>
+          <%= image_tag picture.user.image.thumb50.url, class:"picture-profile-icon" %>
+          <% end %>
+          <%= link_to user_path(picture.user), class:"black-color no-text-decoration", title: picture.user.name do %>
+          <strong><%= picture.user.name%> </strong>
+          <%= link_to "投稿詳細", picture_path(picture.id), class:"btn btn-success" %>
+          <% if picture.user_id == current_user.id %>
+          <%= link_to "削除", picture_path(picture.id), method: :delete, 
+          class: 'btn btn-danger',data: {confirm:"Are you sure?"} %>
+          <% end %>                                                      
+          <% end %>
+        </div>
+        <% end %>  
       </div>
-      <% end %>  
     </div>
-  </div>
-</div>   
+  </div>   
+</div>
