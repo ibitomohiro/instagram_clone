@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
     if @picture.update(picture_params)
-    redirect_to pictures_path, notice:"Pictureを編集しました"
+    redirect_to pictures_path, notice:"画像を編集しました"
     else
       render 'edit'
     end
@@ -24,7 +24,6 @@ class PicturesController < ApplicationController
   def confirm
     @picture = current_user.pictures.new(picture_params)
     if @picture.invalid?
-      flash.now[:danger] = "image have to be included"
       render 'new'
     end
   end
