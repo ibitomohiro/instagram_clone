@@ -6,7 +6,11 @@
         <div class="card-header align-items-center d-flex">
           <%= image_tag picture.image.thumb.url %>
           <%= link_to user_path(picture.user), class: "no-text-decoration" do %> <br>
-          <%= image_tag picture.user.image.thumb50.url, class:"picture-profile-icon" %>
+          <% if picture.user.image?%>
+          <%= image_tag picture.user.image.thumb50.url , class:"picture-profile-icon" %>
+          <% else %>
+            <%= image_tag 'instauser.png',  size: '100×100', class: "picture-profile-icon"%>
+          <% end %>  
           <% end %>
           <%= link_to user_path(picture.user), class:"black-color no-text-decoration", title: picture.user.name do %>
           <strong><%= picture.user.name%> </strong>
