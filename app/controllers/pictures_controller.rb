@@ -1,11 +1,15 @@
 class PicturesController < ApplicationController
-  before_action :logged_in_user, only:[:new,:create,:destroy]
+  before_action :logged_in_user, only:[:new,:create,:destroy, :edit, :update]
   def index
     @pictures = Picture.all
   end
 
   def new
+    if params[:back]
+      @picture = current_user.pictures.new(picture_params)
+    else
     @picture = current_user.pictures.new
+    end
   end
 
   def edit
@@ -23,7 +27,7 @@ class PicturesController < ApplicationController
 
   def confirm
     @picture = current_user.pictures.new(picture_params)
-    if @picture.invalid?
+     if @picture.invalid?
       render 'new'
     end
   end
@@ -32,7 +36,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)
     if @picture.save
-      # PictureMailer.picture_mail(@picture).deliver
+      PictureMailer.picture_mail(@picture).deliver
       flash[:success] = "Pictureを投稿しました！"
       redirect_to pictures_path
     else

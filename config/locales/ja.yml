@@ -3,11 +3,10 @@
     users:
       new:
         Create my account: 'アカウント作成！'
+      edit:
+        Save changes: 'ユーザ情報を変更する'
     shared:
-      #フォルダ名の頭の「_」は取る
       error_messages:
-        #元のコードをマルっとキーにしようと思ってたけど長すぎて変なのでやめた
-        #変数を使う事で動的な表示にも対応
         errors count: 'フォームに%{errors_count}個のエラーがあります'
     activerecord:
       errors:
